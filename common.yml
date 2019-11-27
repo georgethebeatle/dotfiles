@@ -1,58 +1,23 @@
 ---
 - hosts: all
-  tags: [linux, macos]
   tasks:
-  - name: clone vim config
-    git:
-      repo: https://github.com/masters-of-cats/a-new-hope
-      dest: ~/.config/nvim
-      force: yes
-
-  - name: install vim plugins and binaries
-    command: nvim --headless +PlugInstall +PlugUpdate +GoUpdateBinaries +qall
-
-  - name: update remote plugins
-    command: nvim --headless +UpdateRemotePlugins +qall
-
-  - name: get bash-it
-    git:
-      repo: https://github.com/Bash-it/bash-it.git
-      dest: ~/.bash_it
-
-  - name: install bash-it
-    command: ~/.bash_it/install.sh --silent
+          # - name: clone vim config
+          #   git:
+          #     repo: https://github.com/masters-of-cats/a-new-hope
+          #     dest: ~/.config/nvim
+          #     force: yes
+          #
+          # - name: install vim plugins and binaries
+          #   command: nvim --headless +PlugInstall +PlugUpdate +GoUpdateBinaries +qall
+          #
+          # - name: update remote plugins
+          #   command: nvim --headless +UpdateRemotePlugins +qall
 
   - name: install concourse-flake-hunter
     command: go get -u github.com/masters-of-cats/concourse-flake-hunter
 
   - name: install counterfeiter
     command: go get -u github.com/maxbrunsfeld/counterfeiter
-
-  - name: install grootsay
-    command: go get -u github.com/fouralarmfire/grootsay
-
-  - name: install spruce
-    command: go get -u github.com/geofffranks/spruce/...
-
-  # - name: enable bash-it plugins
-  #   shell: source ~/.bash_profile && bash-it enable plugin {{item}}
-  #   args:
-  #     executable: /bin/bash
-  #   with_items:
-  #   - base
-  #   - chruby
-  #   - chruby-auto
-  #   - fzf
-  #   - git
-  #
-  # - name: enable bash-it completions
-  #   shell: source ~/.bash_profile && bash-it enable completion {{item}}
-  #   args:
-  #     executable: /bin/bash
-  #   with_items:
-  #   - bash-it
-  #   - git
-  #   - system
 
   - name: get TPM
     git:
@@ -68,27 +33,17 @@
       state: link
       force: yes
     with_items:
-    - {target: ~/.bash_it/custom/bosh_concourse.bash, src: "{{ansible_env.PWD}}/config/bash/bosh_concourse.bash"}
-    - {target: ~/.bash_it/custom/brew.bash, src: "{{ansible_env.PWD}}/config/bash/brew.bash"}
-    - {target: ~/.bash_it/custom/env.bash, src: "{{ansible_env.PWD}}/config/bash/env.bash"}
-    - {target: ~/.bash_it/custom/git.bash, src: "{{ansible_env.PWD}}/config/bash/git.bash"}
-    - {target: ~/.bash_it/custom/ngrok.bash, src: "{{ansible_env.PWD}}/config/bash/ngrok.bash"}
-    - {target: ~/.bash_it/custom/profile.bash, src: "{{ansible_env.PWD}}/config/bash/profile.bash"}
-    - {target: ~/.bash_it/custom/terminal.bash, src: "{{ansible_env.PWD}}/config/bash/terminal.bash"}
-    - {target: ~/.bash_it/custom/bosh.bash, src: "{{ansible_env.PWD}}/config/bash/bosh.bash"}
-    - {target: ~/.bash_it/custom/k8s_completion.bash, src: "{{ansible_env.PWD}}/config/bash/k8s_completion.bash"}
+    - {target: ~/.oh-my-zsh/custom/env.bash, src: "{{ansible_env.PWD}}/config/bash/env.bash"}
+    - {target: ~/.oh-my-zsh/custom/git.bash, src: "{{ansible_env.PWD}}/config/bash/git.bash"}
+    - {target: ~/.oh-my-zsh/custom/ngrok.bash, src: "{{ansible_env.PWD}}/config/bash/ngrok.bash"}
+    - {target: ~/.oh-my-zsh/custom/k8s_completion.bash, src: "{{ansible_env.PWD}}/config/bash/k8s_completion.bash"}
     - {target: ~/.git-authors, src: "{{ansible_env.PWD}}/config/.git-authors"}
     - {target: ~/.gitconfig-shared, src: "{{ansible_env.PWD}}/config/.gitconfig-shared"}
-    - {target: ~/.hushlogin, src: "{{ansible_env.PWD}}/config/.hushlogin"}
     - {target: ~/.ruby-version, src: "{{ansible_env.PWD}}/config/.ruby-version"}
     - {target: ~/.tmate.conf, src: "{{ansible_env.PWD}}/config/tmate.conf"}
     - {target: ~/.tmux.conf, src: "{{ansible_env.PWD}}/config/tmux.conf"}
     - {target: ~/bin/load-key, src: "{{ansible_env.PWD}}/executables/load-key"}
-    - {target: ~/bin/gotta-push-em-all, src: "{{ansible_env.PWD}}/executables/gotta-push-em-all.sh"}
-    - {target: ~/bin/get-groot-env.sh, src: "{{ansible_env.PWD}}/executables/get-groot-env.sh"}
     - {target: ~/bin/flake-hunter, src: "{{ansible_env.PWD}}/executables/flake-hunter"}
-    - {target: ~/bin/replace-tag, src: "{{ansible_env.PWD}}/executables/replace-tag"}
-    - {target: ~/.local/share/nvim/go/bin/go, src: "{{ansible_env.PWD}}/executables/mac-go.sh"}
 
   - name: ~/.gitconfig
     blockinfile:
@@ -102,15 +57,3 @@
     environment:
       GIT_DUET_CO_AUTHORED_BY: 1
     command: bash -c "git solo \"$( grep authors -A 1 ~/.git-authors | tail -1 | cut -d ':' -f 1 | tr -d '[:space:]' )\""
-
-  - name: clone garden repos
-    git:
-      update: no
-      repo: git@github.com:cloudfoundry/{{item}}.git
-      dest: ~/workspace/{{item}}
-    with_items:
-    - groot
-    - garden-ci
-    - garden-dockerfiles
-    - garden-dotfiles
-    - garden-runc-release

@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  tags: [macos]
   tasks:
   - name: update brew
     homebrew: update_homebrew=yes
@@ -24,6 +23,7 @@
       - bosh-cli
       - cf-cli
       - chruby
+      - ruby-install
       - coreutils
       - ctags
       - curl
@@ -47,12 +47,9 @@
       - pstree
       - python3
       - python@2
-      - reattach-to-user-namespace
       - ripgrep
-      - ruby-install
       - shellcheck
       - ssh-copy-id
-      - sshuttle
       - terraform
       - tig
       - tmate
@@ -74,8 +71,6 @@
     - google-cloud-sdk
     - iterm2
     - shiftit
-    - vagrant
-    - virtualbox
     - ngrok
 
   - name: install neovim pip package
