@@ -77,8 +77,3 @@
       block: |
         [include]
           path = ~/.gitconfig-shared
-
-  - name: install git-co-authored-by-hook
-    environment:
-      GIT_DUET_CO_AUTHORED_BY: 1
-    command: bash -c "git solo \"$( grep authors -A 1 ~/.git-authors | tail -1 | cut -d ':' -f 1 | tr -d '[:space:]' )\""
