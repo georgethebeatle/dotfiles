@@ -21,6 +21,15 @@
     shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     when: not ohmyzsh.stat.exists
 
+  - name: check if ibmcloud cli is installed
+    command: command -v ibmcloud
+    register: ibmcloud_check
+    ignore_errors: True
+
+  - name: install ibmcloud cli  unless already installed
+    shell: sh -c "$(curl -fsSL https://clis.cloud.ibm.com/install/osx | sh)"
+    when: ibmcloud_check.failed
+
   - name: install concourse-flake-hunter
     command: go get -u github.com/masters-of-cats/concourse-flake-hunter
 
