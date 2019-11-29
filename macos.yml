@@ -28,6 +28,9 @@
       - ctags
       - curl
       - direnv
+      - dhall
+      - dhall-json
+      - dhall-bash
       - docker
       - docker-machine
       - fasd
