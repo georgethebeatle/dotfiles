@@ -11,10 +11,18 @@ install_ansible() {
 
 log() {
   echo
-  echo "----------------------------------------------------------------------"
+  echo "----------------------------------------------------------------------------"
   echo "$1"
-  echo "----------------------------------------------------------------------"
+  echo "----------------------------------------------------------------------------"
   echo
+}
+
+switch_to_zsh() {
+  if [[ "$(echo $SHELL)" == "/bin/zsh" ]]; then
+    log "Looks like zsh is already enabled. Skipping..."
+    return
+  fi
+  chsh -s /bin/zsh
 }
 
 log "Hold on tight while I am provisioning your machine. What could go wrong?"
@@ -29,4 +37,6 @@ cd "$(dirname "$0")"
 ansible-playbook -i localhost, --con local playbook.yml
 )
 
-log "Don't forget to read the post install steps in README.md."
+switch_to_zsh
+
+log "All set up! You might have to restart your terminal session for the changes to take effect."

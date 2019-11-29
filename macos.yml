@@ -59,6 +59,7 @@
       - watch
       - wget
       - yarn
+      - zsh
       state: latest
 
   - name: install Homebrew casks
