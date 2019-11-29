@@ -1,12 +1,6 @@
 ---
 - hosts: all
   tasks:
-          # - name: clone vim config
-          #   git:
-          #     repo: https://github.com/masters-of-cats/a-new-hope
-          #     dest: ~/.config/nvim
-          #     force: yes
-          #
   - name: install/update vim plugins and binaries
     command: nvim --headless +PlugInstall +PlugUpdate +GoUpdateBinaries +qall
 

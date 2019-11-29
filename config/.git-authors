@@ -1,16 +1,13 @@
 authors:
-  db: Danail Branekov; danail-branekov
-  gs: Georgi Sabev; georgethebeatle
-  jn: Yulia Nedyalkova; yulianedyalkova
-  jz: Julian Friedman
-  gc: Giuseppe Capizzi; gcapizzi
-  kb: Kieron Browne; kbrowne
-  mn: Mario Nitchev; mnitchev
-email:
-  domain: pivotal.io
+  os: Oleksandr Slynko
+  julz: Julian Skupnjak
+  am: Akshay Mankar
+  gd: Georgi Dankov
+  gs: Georgi Sabev
+
 email_addresses:
-  db: danailster@gmail.com
+  os: oslynko@pivotal.io
+  julz: skupnjak@de.ibm.com
+  am: amankar@pivotal.io
+  gd: gddankov@gmail.com
   gs: georgethebeatle@gmail.com
-  jn: julianedialkova@hotmail.com
-  jz: julz.friedman@uk.ibm.com
-  mn: marionitchev@gmail.com
