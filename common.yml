@@ -34,6 +34,11 @@
 
   - file: path=~/bin state=directory mode=0755
 
+  - name: create nvim config dir
+    file:
+      path: ~/.config/nvim
+      state: directory
+
   - name: set up symlinks
     file:
       path: "{{item.target}}"
@@ -48,6 +53,8 @@
     - {target: ~/.git-authors, src: "{{ansible_env.PWD}}/config/.git-authors"}
     - {target: ~/.gitconfig-shared, src: "{{ansible_env.PWD}}/config/.gitconfig-shared"}
     - {target: ~/.ruby-version, src: "{{ansible_env.PWD}}/config/.ruby-version"}
+    - {target: ~/.zshrc, src: "{{ansible_env.PWD}}/config/.zshrc"}
+    - {target: ~/.config/nvim/init.vim, src: "{{ansible_env.PWD}}/config/init.vim"}
     - {target: ~/.tmate.conf, src: "{{ansible_env.PWD}}/config/tmate.conf"}
     - {target: ~/.tmux.conf, src: "{{ansible_env.PWD}}/config/tmux.conf"}
     - {target: ~/bin/load-key, src: "{{ansible_env.PWD}}/executables/load-key"}
