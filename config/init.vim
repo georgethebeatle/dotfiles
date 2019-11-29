@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mtth/scratch.vim'                                                                         " Unobtrusive scratch window
     Plug 'joshdick/onedark.vim'                                                                     " Dark colorscheme
     Plug 'majutsushi/tagbar'                                                                        " Displays file outline (variables, functions, etc)
+    Plug 'vmchale/dhall-vim'                                                                        " Syntax highlighting for dhall
 call plug#end()
 " ---------------------------------------------------------------------
 
