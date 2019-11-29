@@ -44,6 +44,7 @@
       - kubectl
       - neovim
       - npm
+      - pass
       - pstree
       - python3
       - python@2
