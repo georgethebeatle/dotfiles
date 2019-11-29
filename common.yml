@@ -41,10 +41,9 @@
       state: link
       force: yes
     with_items:
-    - {target: ~/.oh-my-zsh/custom/env.bash, src: "{{ansible_env.PWD}}/config/bash/env.bash"}
-    - {target: ~/.oh-my-zsh/custom/git.bash, src: "{{ansible_env.PWD}}/config/bash/git.bash"}
-    - {target: ~/.oh-my-zsh/custom/ngrok.bash, src: "{{ansible_env.PWD}}/config/bash/ngrok.bash"}
-    - {target: ~/.oh-my-zsh/custom/k8s_completion.bash, src: "{{ansible_env.PWD}}/config/bash/k8s_completion.bash"}
+    - {target: ~/.oh-my-zsh/custom/env.zsh, src: "{{ansible_env.PWD}}/config/bash/env.bash"}
+    - {target: ~/.oh-my-zsh/custom/git.zsh, src: "{{ansible_env.PWD}}/config/bash/git.bash"}
+    - {target: ~/.oh-my-zsh/custom/ngrok.zsh, src: "{{ansible_env.PWD}}/config/bash/ngrok.bash"}
     - {target: ~/.git-authors, src: "{{ansible_env.PWD}}/config/.git-authors"}
     - {target: ~/.gitconfig-shared, src: "{{ansible_env.PWD}}/config/.gitconfig-shared"}
     - {target: ~/.ruby-version, src: "{{ansible_env.PWD}}/config/.ruby-version"}
