@@ -7,13 +7,13 @@
           #     dest: ~/.config/nvim
           #     force: yes
           #
-  - name: install vim plugins and binaries
+  - name: install/update vim plugins and binaries
     command: nvim --headless +PlugInstall +PlugUpdate +GoUpdateBinaries +qall
 
   - name: update remote plugins
     command: nvim --headless +UpdateRemotePlugins +qall
 
-  - name: Check if oh-my-zsh is installed
+  - name: check if oh-my-zsh is installed
     stat: path=~/.oh-my-zsh
     register: ohmyzsh
 
