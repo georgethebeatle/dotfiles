@@ -36,6 +36,7 @@
       - git
       - git-duet
       - go
+      - gnu-tar
       - htop
       - jq
       - jsonpp

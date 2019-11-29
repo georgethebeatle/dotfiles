@@ -1,9 +1,17 @@
 {
-  "languageserver": {
+     "languageserver": {
     "golang": {
       "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": ["go.mod"],
       "filetypes": ["go"]
+    }
+  },
+  "languageserver": {
+    "dhall": {
+      "command": "dhall-lsp-server",
+      "filetypes": [
+        "dhall"
+      ]
     }
   }
 }

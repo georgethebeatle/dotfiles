@@ -26,9 +26,21 @@
     register: ibmcloud_check
     ignore_errors: True
 
-  - name: install ibmcloud cli  unless already installed
+  - name: install ibmcloud cli unless already installed
     shell: sh -c "$(curl -fsSL https://clis.cloud.ibm.com/install/osx | sh)"
     when: ibmcloud_check.failed
+
+  - name: check if dhall lsp server is installed
+    command: command -v dhall-lsp-server
+    register: dhall_lsp_check
+    ignore_errors: True
+
+  - name: install dhall lsp server unless already installed
+    unarchive:
+      src: "https://github.com/dhall-lang/dhall-haskell/releases/download/1.27.0/dhall-lsp-server-1.0.2-x86_64-macos.tar.bz2"
+      dest: /usr/local
+      remote_src: yes
+    when: dhall_lsp_check.failed
 
   - name: install concourse-flake-hunter
     command: go get -u github.com/masters-of-cats/concourse-flake-hunter
