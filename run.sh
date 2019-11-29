@@ -18,7 +18,7 @@ log() {
 }
 
 switch_to_zsh() {
-  if [[ "$(echo $SHELL)" == "/bin/zsh" ]]; then
+  if [[ "${SHELL}" == "/bin/zsh" ]]; then
     log "Looks like zsh is already enabled. Skipping..."
     return
   fi
@@ -27,7 +27,7 @@ switch_to_zsh() {
 
 log "Hold on tight while I am provisioning your machine. What could go wrong?"
 
-if ! which ansible-playbook > /dev/null 2>&1 ; then
+if ! command -v ansible-playbook > /dev/null 2>&1 ; then
   echo "ansible-playbook not found on \$PATH, installing"
   install_ansible
 fi
