@@ -9,7 +9,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}                              " Intellisense engine; full language server protocol support; built from source code
     Plug '/usr/local/opt/fzf'                                                                       " Use brew installed fzf
     Plug 'junegunn/fzf.vim'                                                                         " Awesome fuzzy finder
-    Plug 'jiangmiao/auto-pairs'                                                                     " Insert/delete brackets
     Plug 'tpope/vim-surround'                                                                       " Provides mappings to easily delete, change and add surroundings (parentheses, brackets, quotes, XML tags, and more) in pairs
     Plug 'JamshedVesuna/vim-markdown-preview'                                                       " Preview markdown files in the browser
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }                                              " Golang plugin
