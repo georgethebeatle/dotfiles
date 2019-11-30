@@ -65,6 +65,7 @@
     - {target: ~/.oh-my-zsh/custom/git.zsh, src: "{{ansible_env.PWD}}/config/bash/git.bash"}
     - {target: ~/.oh-my-zsh/custom/ngrok.zsh, src: "{{ansible_env.PWD}}/config/bash/ngrok.bash"}
     - {target: ~/.oh-my-zsh/custom/aliases.zsh, src: "{{ansible_env.PWD}}/config/bash/aliases.bash"}
+    - {target: ~/.oh-my-zsh/custom/keybindings.zsh, src: "{{ansible_env.PWD}}/config/bash/keybindings.bash"}
     - {target: ~/.git-authors, src: "{{ansible_env.PWD}}/config/.git-authors"}
     - {target: ~/.gitconfig-shared, src: "{{ansible_env.PWD}}/config/.gitconfig-shared"}
     - {target: ~/.ruby-version, src: "{{ansible_env.PWD}}/config/.ruby-version"}
