@@ -61,6 +61,11 @@ let maplocalleader=","                                              "Local leade
 inoremap jk <esc>
 inoremap ;; <esc>
 
+" delete in insert mode
+inoremap <C-d> <del>
+inoremap <C-a> <esc>^i
+inoremap <C-e> <esc>$i
+
 " Increase the maximum amount of memory to use for pattern matching
 set maxmempattern=2000
 
@@ -152,6 +157,10 @@ nnoremap k gk
 " Movement in popup menu
 inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+" be able to move in insert mode
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
 " ---------------------------------------------------------------------
 
 " =======================================================================================
