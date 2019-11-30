@@ -63,7 +63,7 @@ inoremap ;; <esc>
 " delete in insert mode
 inoremap <C-d> <del>
 inoremap <C-a> <esc>^i
-inoremap <C-e> <esc>$i
+inoremap <C-e> <esc>$i<right>
 
 " Increase the maximum amount of memory to use for pattern matching
 set maxmempattern=2000
