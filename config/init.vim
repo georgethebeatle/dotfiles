@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'zirrostig/vim-schlepp'                                                                    " Move lines (or bocks) of text around easily
     Plug 'tpope/vim-commentary'                                                                     " Comment stuff out
     Plug 'christoomey/vim-system-copy'                                                              " Add mappings to copy to clipboard
+    Plug 'christoomey/vim-tmux-navigator'                                                           " smart navigation between vim and tmux
     Plug 'powerman/vim-plugin-AnsiEsc'                                                              " ANSI escape sequences concealed, but highlighted as specified
     Plug 'RRethy/vim-illuminate'                                                                    " Selectively illuminating other uses of the current word under the cursor
     Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }                                                        " Runs shfmt to auto format the current buffer
