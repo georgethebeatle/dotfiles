@@ -36,7 +36,7 @@ call plug#end()
 set mouse=a                                                         "Enable mouse
 set backspace=indent,eol,start                                      "Make backspace normal
 set nocompatible                                                    "Disable vi compatibility. Because we're not in 1995
-set tw=0                                                            "Disable automactic line wrapping
+set nowrap                                                          "Disable automactic line wrapping
 set list                                                            "Display whitespace characters
 set listchars=tab:▸\ ,trail:~,extends:>,precedes:<,space:·          "Specify whitespace characters visualization
 set noerrorbells                                                    "Disable beeping
