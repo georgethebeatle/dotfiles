@@ -53,7 +53,7 @@ if !has('nvim')
   set ttymouse=sgr                                                    "Make the mouse work even in columns beyond 223
 endif
 
-let mapleader=","                                                   "Leader is comma
+let mapleader=" "                                                   "Leader is comma
 let maplocalleader=","                                              "Local leader is comma
 
 "For pairing convenience (alternative esc sequences)
