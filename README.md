@@ -10,5 +10,5 @@ Clone this repository and run
 ```
 
 It may take som time on a clean machine, be patient. Works best with iterm with a Nerd font set. In order to set the nerd fond got to 
-Iterm Preferences > Profiles -> Text, check the 'Use a different font for non-ASCII text' option and select Inconsolata Nerd Font theat
+`Iterm Preferences > Profiles -> Text`, check the `Use a different font for non-ASCII text` option and select `Inconsolata Nerd Font` that
 is iinstalled by this playbook.
