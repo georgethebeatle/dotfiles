@@ -545,3 +545,9 @@ inoremap <silent><expr> <C-o> pumvisible() ? coc#_select_confirm() :
                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " --------------------------------------------------------------------------
+
+" -------------------------------- Tagbar ----------------------------------
+" open tagbar
+nmap <F8> :TagbarToggle<CR>
+nmap <leader>tt :TagbarToggle<CR>
+" --------------------------------------------------------------------------
