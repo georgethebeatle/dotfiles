@@ -552,3 +552,8 @@ inoremap <silent><expr> <C-o> pumvisible() ? coc#_select_confirm() :
 nmap <F8> :TagbarToggle<CR>
 nmap <leader>tt :TagbarToggle<CR>
 " --------------------------------------------------------------------------
+
+" -------------------------------- Startify --------------------------------
+" When opening a file or bookmark, DO NOT change to its directory<Paste>
+let g:startify_change_to_dir = 0
+" --------------------------------------------------------------------------
