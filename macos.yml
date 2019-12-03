@@ -29,6 +29,7 @@
       - curl
       - direnv
       - dhall
+      - akshaymankar/tap/dhall-fly
       - dhall-json
       - dhall-bash
       - docker
