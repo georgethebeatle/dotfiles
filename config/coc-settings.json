@@ -4,6 +4,7 @@
   "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.formatOnSaveFiletypes": ["go", "dhall"],
   "suggest.enablePreview": true,
+  "suggest.enablePreselect": false,
   "diagnostic.enable":true,
   "languageserver": {
     "golang": {
