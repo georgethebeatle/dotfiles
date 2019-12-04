@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug '/usr/local/opt/fzf'                                                                       " Use brew installed fzf
     Plug 'junegunn/fzf.vim'                                                                         " Awesome fuzzy finder
     Plug 'tpope/vim-surround'                                                                       " Provides mappings to easily delete, change and add surroundings (parentheses, brackets, quotes, XML tags, and more) in pairs
+    Plug 'tpope/vim-rhubarb'                                                                        " Open selected code in githb in browser
     Plug 'JamshedVesuna/vim-markdown-preview'                                                       " Preview markdown files in the browser
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }                                              " Golang plugin
     Plug 'trayo/vim-ginkgo-snippets'                                                                " Add snippets for Ginkgo BDD testing library for go
@@ -556,4 +557,10 @@ nmap <leader>tt :TagbarToggle<CR>
 " -------------------------------- Startify --------------------------------
 " When opening a file or bookmark, DO NOT change to its directory<Paste>
 let g:startify_change_to_dir = 0
+" --------------------------------------------------------------------------
+
+" -------------------------------- vim-rhubarb -----------------------------
+" open in github
+nmap <silent> <leader>gh :Gbrowse<cr>
+vmap <silent> <leader>gh :Gbrowse<cr>
 " --------------------------------------------------------------------------
