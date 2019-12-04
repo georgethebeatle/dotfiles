@@ -57,6 +57,9 @@
       repo: https://github.com/tmux-plugins/tpm
       dest: ~/.tmux/plugins/tpm
 
+  - name: install github-auth
+    command: "gem install github-auth"
+
   - file: path=~/bin state=directory mode=0755
 
   - name: create nvim config dir

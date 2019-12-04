@@ -24,3 +24,6 @@ function ginit {
   tmux send -t ngrok "ngrok tcp --region=eu 22" ENTER
 }
 
+function add-key {
+  gh-auth add --users "$@" --command="$(command -v which tmux) attach -t pairing"
+}
