@@ -80,6 +80,7 @@
     - iterm2
     - shiftit
     - ngrok
+    - gpg-suite
 
   - name: install neovim pip package
     pip: name=neovim state=latest
