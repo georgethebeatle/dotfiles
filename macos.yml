@@ -41,7 +41,7 @@
       - git-duet
       - go
       - gnu-tar
-      - golangci-lint
+      - golangci/tap/golangci-lint
       - htop
       - jq
       - jsonpp
