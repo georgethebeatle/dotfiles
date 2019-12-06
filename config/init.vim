@@ -564,3 +564,8 @@ let g:startify_change_to_dir = 0
 nmap <silent> <leader>gh :Gbrowse<cr>
 vmap <silent> <leader>gh :Gbrowse<cr>
 " --------------------------------------------------------------------------
+
+" --------------------------------- fugitive -------------------------------
+" open git blame
+nmap <silent> <leader>gb :Gblame<cr>
+" --------------------------------------------------------------------------
