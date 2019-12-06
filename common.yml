@@ -82,7 +82,6 @@
     - {target: ~/.oh-my-zsh/custom/themes/amused.zsh-theme, src: "{{ansible_env.PWD}}/config/bash/amused.zsh-theme"}
     - {target: ~/.git-authors, src: "{{ansible_env.PWD}}/config/.git-authors"}
     - {target: ~/.gitconfig-shared, src: "{{ansible_env.PWD}}/config/.gitconfig-shared"}
-    - {target: ~/.ruby-version, src: "{{ansible_env.PWD}}/config/.ruby-version"}
     - {target: ~/.zshrc, src: "{{ansible_env.PWD}}/config/.zshrc"}
     - {target: ~/.config/nvim/init.vim, src: "{{ansible_env.PWD}}/config/init.vim"}
     - {target: ~/.config/nvim/coc-settings.json, src: "{{ansible_env.PWD}}/config/coc-settings.json"}
