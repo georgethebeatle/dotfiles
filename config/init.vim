@@ -81,9 +81,6 @@ endfunction
 
 com! DiffSaved call s:DiffWithSaved()
 
-" Reload file
-inoremap <silent> <leader>r :edit<CR>
-
 " Save on enter
 nnoremap <silent> <expr> <cr> empty(&buftype) ? ':w<cr>' : '<cr>'
 
