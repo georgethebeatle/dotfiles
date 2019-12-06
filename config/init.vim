@@ -96,6 +96,9 @@ nmap <leader>q :qa!<cr>
 " writa all buffers and quit vim
 nmap <leader>wq :wqa!<cr>
 
+" show preview of text substitution
+set inccommand=split
+
 " ---------------------------------------------------------------------
 
 " -------------------------- COLORSCHEME ------------------------------
