@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'joshdick/onedark.vim'                                                                     " Dark colorscheme
     Plug 'majutsushi/tagbar'                                                                        " Displays file outline (variables, functions, etc)
     Plug 'vmchale/dhall-vim'                                                                        " Syntax highlighting for dhall
+    Plug 'airblade/vim-gitgutter'                                                                   " Show git diff in the sign column
 call plug#end()
 " ---------------------------------------------------------------------
 
@@ -568,4 +569,9 @@ vmap <silent> <leader>gh :Gbrowse<cr>
 " --------------------------------- fugitive -------------------------------
 " open git blame
 nmap <silent> <leader>gb :Gblame<cr>
+" --------------------------------------------------------------------------
+
+" ------------------------ airblade/vim-gitgutter  -------------------------
+" make vim redraw every 100ms so that diff shows immediately
+set updatetime=100
 " --------------------------------------------------------------------------
