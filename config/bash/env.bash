@@ -9,4 +9,6 @@ export PATH=$GOPATH/bin:$PATH
 
 export PATH=$HOME/bin:$PATH
 
+export HOMETIME="19:00:00"
+export LASTPASS_NAME="Georgi"
 export LPASS_AGENT_TIMEOUT=14400
