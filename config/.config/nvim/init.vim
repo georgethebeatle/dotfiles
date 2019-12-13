@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'majutsushi/tagbar'                                                                        " Displays file outline (variables, functions, etc)
     Plug 'vmchale/dhall-vim'                                                                        " Syntax highlighting for dhall
     Plug 'airblade/vim-gitgutter'                                                                   " Show git diff in the sign column
+    Plug 'terryma/vim-multiple-cursors'                                                             " Easily rename multiple vars and lots more
 call plug#end()
 " ---------------------------------------------------------------------
 
