@@ -87,7 +87,7 @@ com! DiffSaved call s:DiffWithSaved()
 nnoremap <silent> <expr> <cr> empty(&buftype) ? ':w<cr>' : '<cr>'
 
 " clear search highligt
-nnoremap <silent> <space> :nohl<cr>
+nnoremap <silent> <Leader> <l> :nohl<cr>
 
 " be able to indent visual block multiple times
 vnoremap > >gv
@@ -404,7 +404,7 @@ autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 let g:go_auto_type_info = 1
 
 " Highlight all uses of the identifier under the cursor
-let g:go_auto_sameids = 1
+let g:go_auto_sameids = 0
 
 " --------------------------------------------------------------------------
 
