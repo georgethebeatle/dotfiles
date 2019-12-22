@@ -68,6 +68,7 @@
       - wget
       - yarn
       - zsh
+      - kubernetes-helm
       state: latest
 
   - name: install Homebrew casks
