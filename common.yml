@@ -31,7 +31,7 @@
     ignore_errors: True
 
   - name: install ibmcloud cli unless already installed
-    shell: sh -c "$(curl -sL https://ibm.biz/idt-installer | bash)"
+    shell: curl -sL https://ibm.biz/idt-installer | /bin/bash
     when: ibmcloud_check.failed
 
   - name: check if dhall lsp server is installed

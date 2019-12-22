@@ -37,6 +37,7 @@
       - fasd
       - fortune
       - fzf
+      - gcc
       - git
       - git-duet
       - go
