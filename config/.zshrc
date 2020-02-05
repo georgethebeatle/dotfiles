@@ -104,6 +104,8 @@ source $ZSH/oh-my-zsh.sh
 
 # enable kubectl autocompletion
 source <(kubectl completion zsh)
+alias k=kubectl
+complete -F __start_kubectl k
 
 # brew doctor suggestion
 export PATH="/usr/local/sbin:$PATH"
