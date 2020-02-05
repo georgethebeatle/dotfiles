@@ -1,4 +1,4 @@
-alias pattach='tmux attach -t pairing'
+alias pattach='tmux attach -dt pairing'
 alias pmux='tmux new-session -s pairing'
 
 function lsgrok {
