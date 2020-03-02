@@ -112,3 +112,6 @@ export PATH="/usr/local/sbin:$PATH"
 
 # chruby
 source /usr/local/share/chruby/chruby.sh
+
+# use helm 2
+export PATH="/usr/local/opt/helm@2/bin:$PATH"
