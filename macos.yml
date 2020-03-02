@@ -17,21 +17,20 @@
       name:
       - ack
       - ag
+      - akshaymankar/tap/dhall-fly
       - awscli
       - bash
       - bash-completion@2
       - bosh-cli
       - cf-cli
       - chruby
-      - ruby-install
       - coreutils
       - ctags
       - curl
-      - direnv
       - dhall
-      - akshaymankar/tap/dhall-fly
-      - dhall-json
       - dhall-bash
+      - dhall-json
+      - direnv
       - docker
       - docker-machine
       - fasd
@@ -40,15 +39,16 @@
       - gcc
       - git
       - git-duet
-      - go
       - gnu-tar
+      - go
       - golangci/tap/golangci-lint
       - htop
       - jq
       - jsonpp
+      - kubectl
+      - kubernetes-helm
       - lastpass-cli
       - libgit2
-      - kubectl
       - neovim
       - npm
       - pass
@@ -56,6 +56,7 @@
       - python3
       - python@2
       - ripgrep
+      - ruby-install
       - shellcheck
       - ssh-copy-id
       - terraform
@@ -68,7 +69,6 @@
       - wget
       - yarn
       - zsh
-      - kubernetes-helm
       state: latest
 
   - name: install Homebrew casks
@@ -79,10 +79,10 @@
     - font-inconsolata
     - font-inconsolata-nerd-font
     - google-cloud-sdk
-    - iterm2
-    - shiftit
-    - ngrok
     - gpg-suite
+    - iterm2
+    - ngrok
+    - shiftit
 
   - name: install neovim pip package
     pip: name=neovim state=latest
