@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'                                                                         " Awesome fuzzy finder
     Plug 'tpope/vim-surround'                                                                       " Provides mappings to easily delete, change and add surroundings (parentheses, brackets, quotes, XML tags, and more) in pairs
     Plug 'tpope/vim-rhubarb'                                                                        " Open selected code in githb in browser
-    Plug 'JamshedVesuna/vim-markdown-preview'                                                       " Preview markdown files in the browser
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}                        " Preview markdown on your modern browser with sync scroll and flexible configuration
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }                                              " Golang plugin
     Plug 'trayo/vim-ginkgo-snippets'                                                                " Add snippets for Ginkgo BDD testing library for go
     Plug 'SirVer/ultisnips'                                                                         " Add various code snippets
@@ -366,16 +366,6 @@ augroup LightLineOnALE
   autocmd User ALELintPost call lightline#update()
 augroup end
 " -------------------------------------------------------------------------
-
-" --------------------------------- Vim-Markdown-Preview --------------------------------
-
-" Use Chrome
-let vim_markdown_preview_browser='Google Chrome'
-
-" Use github syntax
-let vim_markdown_preview_github=1
-
-" --------------------------------------------------------------------------
 
 " --------------------------------- Vim-Go --------------------------------
 
