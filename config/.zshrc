@@ -109,3 +109,6 @@ complete -F __start_kubectl k
 
 # brew doctor suggestion
 export PATH="/usr/local/sbin:$PATH"
+
+# chruby
+source /usr/local/share/chruby/chruby.sh
