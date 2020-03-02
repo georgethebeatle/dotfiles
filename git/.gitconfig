@@ -1,0 +1,15 @@
+[include]
+  path = ~/.gitconfig-shared
+[user]
+	name = Georgi Sabev
+	email = georgethebeatle@gmail.com
+[duet "env"]
+	git-author-initials = gs
+	git-author-name = Georgi Sabev
+	git-author-email = georgethebeatle@gmail.com
+	mtime = 1583138217
+	git-committer-initials = 
+	git-committer-name = 
+	git-committer-email = 
+[init]
+	templatedir = /Users/i056003/.git-template

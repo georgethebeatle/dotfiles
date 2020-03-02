@@ -2,13 +2,6 @@
 
 set -euo pipefail
 
-install_ansible() {
-  log "installing/upgrading Homebrew"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew install ansible
-}
-
-
 log() {
   echo
   echo "----------------------------------------------------------------------------"
@@ -27,16 +20,7 @@ switch_to_zsh() {
 
 log "Hold on tight while I am provisioning your machine. What could go wrong?"
 
-if ! command -v ansible-playbook > /dev/null 2>&1 ; then
-  echo "ansible-playbook not found on \$PATH, installing"
-  install_ansible
-fi
-
-(
-cd "$(dirname "$0")"
-ansible-playbook -i localhost, --con local playbook.yml
-)
-
+stow -t $HOME zsh git nvim tmux utils
 switch_to_zsh
 
 log "All set up! You might have to restart your terminal session for the changes to take effect."

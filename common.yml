@@ -1,3 +1,7 @@
+########################################################################################
+# This file is left for reference of things that are not brew installed
+# It shoul be converted to a script to accompany the tem's Brefwile found in https://github.com/eirini-forks/eirini-home
+########################################################################################
 ---
 - hosts: all
   tasks:
@@ -59,47 +63,3 @@
 
   - name: install github-auth
     command: "gem install github-auth"
-
-  - file: path=~/bin state=directory mode=0755
-
-  - name: create nvim config dir
-    file:
-      path: ~/.config/nvim
-      state: directory
-
-  - name: recursively find all config dirs under 'config/'
-    find:
-      paths: config
-      recurse: yes
-      hidden: yes
-      file_type: directory
-    register: config_dirs
-
-  - name: ensure all conf dirs exist
-    file:
-      path: "{{ ansible_env.HOME }}/{{ item | regex_replace('^config/', '') }}"
-      state: directory
-    with_items: "{{ config_dirs.files | map(attribute='path') | list }}"
-
-  - name: recursively find all config files under 'config/'
-    find:
-      paths: config
-      recurse: yes
-      hidden: yes
-    register: config
-
-  - name: symlink config files
-    file:
-      path: "{{ ansible_env.HOME }}/{{ item | regex_replace('^config/', '') }}"
-      src: "{{ansible_env.PWD }}/{{ item }}"
-      state: link
-      force: yes
-    with_items: "{{ config.files | map(attribute='path') | list }}"
-
-  - name: ~/.gitconfig
-    blockinfile:
-      path: ~/.gitconfig
-      create: yes
-      block: |
-        [include]
-          path = ~/.gitconfig-shared
