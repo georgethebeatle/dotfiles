@@ -26,10 +26,6 @@ main() {
 }
 
 configure_home_dir() {
-  if [[ $# -gt 0 && "$1" == "--skip-config" ]]; then
-    return
-  fi
-
   # shellcheck disable=SC2086
   stow -d "$STOW_DIR" -t "$HOME" ${STOW_PACKAGES}
 }
