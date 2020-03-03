@@ -1,0 +1,122 @@
+#!/bin/bash
+set -eu
+
+main() {
+  pushd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
+    ensure_brew_exists
+    update_brew_things
+    install_ohmyzsh
+    install-z-plugin
+    switch_to_zsh
+    install_tmux_plugin_manager
+    install_ginkgo
+    install_counterfeiter
+    install_flake_hunter
+    install_github_auth
+    install_vim_plug
+    install_vim_plugings
+    install_vim_extensions
+    install_ibmcloud_cli
+    configure_home
+  popd > /dev/null
+  echo "💾 All done. Enjoy! ️"
+}
+
+configure_home() {
+  stow -t "$HOME" zsh git nvim tmux utils
+}
+
+ensure_brew_exists() {
+  echo "🍺 Ensuring brew exists..."
+  if [[ ! -x /usr/local/bin/brew ]] ; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+}
+
+update_brew_things() {
+  echo "🍺 Brewing..."
+  brew update
+  brew upgrade
+  brew bundle
+}
+
+install_vim_plug() {
+  echo "Installing vim plug..."
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
+install_vim_plugings() {
+  echo "Installing vim plugins..."
+  nvim --headless +PlugInstall +PlugUpdate +GoUpdateBinaries +qall
+  nvim --headless +UpdateRemotePlugins +qall
+}
+
+install_vim_extensions() {
+  echo "Ensuring that we have neovim python plugins"
+  pip3 install --upgrade neovim
+  npm install -g neovim
+  gem install neovim --user-install
+  mkdir -p ~/.config
+}
+
+install_ginkgo() {
+  echo "Installing ginkgo..."
+  go get -u github.com/onsi/gomega
+  go get -u github.com/onsi/ginkgo/ginkgo
+}
+
+install_counterfeiter() {
+  go get -u github.com/maxbrunsfeld/counterfeiter
+}
+
+install_flake_hunter() {
+  go get -u github.com/masters-of-cats/concourse-flake-hunter
+}
+
+
+install_github_auth() {
+  gem install github-auth
+}
+
+install_ohmyzsh() {
+  if [[ ! -d ~/.oh-my-zsh ]]; then
+    curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+  fi
+}
+
+switch_to_zsh() {
+  if [[ "${SHELL}" == "/bin/zsh" ]]; then
+    echo "Looks like zsh is already enabled. Skipping..."
+    return
+  fi
+  chsh -s /bin/zsh
+}
+
+install-z-plugin() {
+  rm -rf ~/.ohmyzsh/custom/plugins/zsh-z
+  git clone https://github.com/agkozak/zsh-z ~/.ohmyzsh/custom/plugins/zsh-z
+}
+
+install_ibmcloud_cli() {
+  if [[ ! $(command -v ibmcloud) ]]; then 
+    curl -sL https://ibm.biz/idt-installer | /bin/bash
+  fi
+}
+
+install_dhall(){
+  if [[ ! $(command -v dhall-lsp-server) ]]; then
+    wget https://github.com/dhall-lang/dhall-haskell/releases/download/1.27.0/dhall-lsp-server-1.0.2-x86_64-macos.tar.bz2
+    tar -xvjf dhall-lsp-server-1.0.2-x86_64-macos.tar.bz2 -C /usr/local
+    rm dhall-lsp-server-1.0.2-x86_64-macos.tar.bz2
+  fi
+}
+
+install_tmux_plugin_manager() {
+  if [[ ! -d "${HOME}/.tmux" ]]; then
+    mkdir -p "${HOME}/.tmux/plugins"
+    git clone https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
+  fi
+}
+
+main
