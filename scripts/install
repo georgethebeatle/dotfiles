@@ -5,7 +5,7 @@ STOW_PACKAGES=${STOW_PACKAGES:-zsh git nvim tmux utils}
 STOW_DIR=${STOW_DIR:-$PWD}
 
 main() {
-  pushd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
+  pushd "$( dirname "${BASH_SOURCE[0]}" )/.." > /dev/null
     ensure_brew_exists
     update_brew_things
     install_ohmyzsh
@@ -16,16 +16,20 @@ main() {
     install_counterfeiter
     install_flake_hunter
     install_github_auth
-    install_vim_plug
-    install_vim_plugings
-    install_vim_extensions
     install_ibmcloud_cli
-    configure_home
+    install_vim_plug
+    install_vim_extensions
+    configure_home_dir
+    install_vim_plugins
   popd > /dev/null
   echo "💾 All done. Enjoy! ️"
 }
 
-configure_home() {
+configure_home_dir() {
+  if [[ $# -gt 0 && "$1" == "--skip-config" ]]; then
+    return
+  fi
+
   # shellcheck disable=SC2086
   stow -d "$STOW_DIR" -t "$HOME" ${STOW_PACKAGES}
 }
@@ -50,7 +54,7 @@ install_vim_plug() {
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
-install_vim_plugings() {
+install_vim_plugins() {
   echo "Installing vim plugins..."
   nvim --headless +PlugInstall +PlugUpdate +GoUpdateBinaries +qall
   nvim --headless +UpdateRemotePlugins +qall

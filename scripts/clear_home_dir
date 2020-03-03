@@ -1,0 +1,9 @@
+#!/bin/bash
+set -eux
+
+STOW_PACKAGES=${STOW_PACKAGES:-zsh git nvim tmux utils}
+STOW_DIR=${STOW_DIR:-$PWD}
+
+# shellcheck disable=SC2086
+stow -D -d "$STOW_DIR" -t "$HOME" ${STOW_PACKAGES}
+
