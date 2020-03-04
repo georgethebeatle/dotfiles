@@ -1,8 +1,10 @@
 #!/bin/bash
-set -eu
+set -eux
 
-STOW_PACKAGES=${STOW_PACKAGES:-zsh git nvim tmux utils}
 STOW_DIR=${STOW_DIR:-$PWD}
+STOW_PACKAGES=${STOW_PACKAGES:-zsh git git-shared nvim tmux utils}
+CUSTOM_STOW_DIR=${CUSTOM_STOW_DIR:-}
+CUSTOM_STOW_PACKAGES=${CUSTOM_STOW_PACKAGES:-}
 
 main() {
   pushd "$( dirname "${BASH_SOURCE[0]}" )/.." > /dev/null
@@ -26,8 +28,24 @@ main() {
 }
 
 configure_home_dir() {
+  touch scripts/stow-log
+  tail -r scripts/stow-log | bash
+
   # shellcheck disable=SC2086
   stow -d "$STOW_DIR" -t "$HOME" ${STOW_PACKAGES}
+  echo stow --delete -d "$STOW_DIR" -t "$HOME" "${STOW_PACKAGES}" > scripts/stow-log
+
+  if [ -n "$CUSTOM_STOW_DIR" ] && [ -n "${CUSTOM_STOW_PACKAGES}" ]; then
+    # shellcheck disable=SC2068
+    for package in ${CUSTOM_STOW_PACKAGES[@]}; do
+      if [ -d "$package" ]; then
+        # unstow package to be overriden to avoid conflicts
+        stow --delete -t "$HOME" "$package"
+      fi
+      stow -d "$CUSTOM_STOW_DIR" -t "$HOME" "$package"
+      echo stow --delete -d "$CUSTOM_STOW_DIR" -t "$HOME" "$package" >> scripts/stow-log
+    done
+  fi
 }
 
 ensure_brew_exists() {
